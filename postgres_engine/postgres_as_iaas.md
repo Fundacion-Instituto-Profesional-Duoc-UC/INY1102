@@ -14,7 +14,7 @@ Este documento detalla los pasos para implementar PostgreSQL como una solución 
    - **Nombre**: `postgres_engine`.
    - **AMI**: Selecciona **Amazon Linux 2023**.
 
-<img src="img/launch_ec2.png" alt="metadata api diagram" width="70%">
+<img src=".img/launch_ec2.png" alt="launching ec2" width="70%">
 
    - **Tipo de instancia**: `t2.micro`
    - **Almacenamiento**: Configura al menos 8 GB de almacenamiento.
