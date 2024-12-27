@@ -43,3 +43,24 @@
 
    ```bash
    ssh -i "ruta_a_tu_clave.pem" ec2-user@<IP_de_tu_instancia>
+
+
+## **Instalación en instancia del motor**
+
+   ```bash
+sudo dnf update
+sudo dnf upgrade
+sudo dnf install postgresql16 postgresql16-server -y
+sudo postgresql-setup --initdb
+sudo systemctl start postgresql
+sudo systemctl enable postgresql
+sudo systemctl status postgresql
+
+sudo -u postgres psql
+sudo cp /var/lib/pgsql/data/postgresql.conf /var/lib/pgsql/data/postgresql.conf.back
+sudo vim /var/lib/pgsql/data/postgresql.conf
+
+sudo cp /var/lib/pgsql/data/pg_hba.conf /var/lib/pgsql/data/pg_hba.conf.back
+sudo vim /var/lib/pgsql/data/pg_hba.conf
+
+sudo systemctl restart postgresql
