@@ -28,6 +28,7 @@
 
    - **Para el Security Group**
 
+      - **Nombre**: `sgrp_bd`
       - Abre el puerto `22` (SSH).
       - Abre el puerto `5432` para tu IP pública (PostgreSQL).
       - Si lo requiere, también puede abrir también ICMP para pruebas de conetividad.
@@ -71,9 +72,10 @@ La forma más adecuada dependerá de si utiliza Sandbox Environment del curso de
 <img src="img/connect_browser-based_client.png" alt="showing how to connect using browser-based client" width="60%">
 
 
-- Conexión usando cliente browser-based
+- Conexión usando cliente browser-based \
 
 <img src="img/browser-based_client.png" alt="connected using browser-based client" width="60%">
+
 
 
 2. Instalación del motor en la instancia:
@@ -106,10 +108,16 @@ Para salir use `Ctrl + C`.
 ```bash
 sudo -u postgres psql
 ```
+
+```bash
+\password postgres
+#Configurar contraseña y salir con \q
+```
+
 <img src="img/password_postgres.png" alt="modify password postgres" width="60%">
 
 
-4. Configurar respaldar y configurar archivo `postgresql.conf`:
+4. Respaldar y configurar archivo `postgresql.conf`:
 
 - En el archivo `postgresql.conf`, se controla en qué interfaces de red PostgreSQL escuchará conexiones entrantes.
 - Respaldar archivo `postgresql.conf`. Para conservar archivo original en caso de algún error o problema.
@@ -123,11 +131,11 @@ sudo vim /var/lib/pgsql/data/postgresql.conf
 ```
 - Configurar en la línea 60 archivo `postgresql.conf` las direcciones de escucha del servicio. 
 - Para este caso abriremos todas las conexiones, sin embargo, por seguridad se recomienda que defina una IP específica.
-- Por defecto tiene `localhost`, cambiar a `*` abriendo así a todas las direcciones entrantes posibles y guardar los cambios.
+- Por defecto tiene `localhost`, se debe descomentar la línea y cambiar a `*`, abriendo así a todas las direcciones entrantes posibles y guardar los cambios.
 
 <img src="img/listen_addresses.png" alt="listen addresses" width="60%">
 
-5. Configurar respaldar y configurar archivo `pg_hba.conf`:
+5. Respaldar y configurar archivo `pg_hba.conf`:
 
 - En el archivo `pg_hba.conf`, se controla quién puede conectarse y cómo se autentican los clientes a PostgreSQL. Aquí se definen reglas de autenticación basadas en IP, usuario y base de datos.
 - Respaldar archivo `pg_hba.conf`. Para conservar archivo original en caso de algún error o problema.
@@ -160,11 +168,52 @@ sudo systemctl restart postgresql
 
 ```
 
-- Desde su entorno local realice pruebas de conectividad hacia el motor.
+- Idéntifique la IP pública de su instancia y copiela. 
+- En este caso de ejemplo, la IPv4 pública es `54.152.105.146`.
+- Siempre fíjese en ese valor, pues en esta forma de implementación la IP pública es dinámica y puede haber cambiado el valor por algún motivo, como por ejemplo, apagar unos segundos y luego iniciar nuevamente la instancia EC2.
 
+<img src="img/public_ipv4.png" alt="public ipv4 fo rinstance" width="60%">
 
+- Desde su entorno local realice pruebas de conectividad de red hacia el motor usando ping o telnet.
 
+<img src="img/ping_telnet.png" alt="public ipv4 fo rinstance" width="60%">
 
 ---
 
-## **Parte II: Conectarse al motor de PostgreSQL**
+## **Parte II: Conectarse al motor de PostgreSQL y utilizar lenguaje SQL**
+
+## *Paso 1. Conectar a la Base de datos*
+
+1. En este ejemplo se utiliza cliente GUI de base de datos DBeaver para realizar la conexión. Se crea una nueva conexión se ajustan las siguiente propiedades de conexión:
+
+- Host: Dato obtenido desde su IP pública.
+- Database: `postgres` -> Esta es la database creada por defecto.
+- Nombre usuario: `postgres`
+- Contraseña: Usar la que usted definió en la Parte I.
+
+<img src="img/connect_to_db.png" alt="DBeaver connect to db in ec2" width="60%">
+
+
+2. Teniendo los datos de la conexión configurada, realice un test con el botón de `Probar conexión ...`.
+
+<img src="img/connection_test.png" alt="connection test" width="60%">
+
+- Si en el test le aparece `Conectado` haga click en `Aceptar` y luego en `Finalizar`.
+- Si en el test no le aparece `Conectado` revise las propiedades de conexión o de red.
+
+3. Haga doble click en su nueva bases de datos en el `Navegador de Bases de Datos` y expándala. Luego abra un nuevo `Script SQL`.
+
+<img src="img/new_script.png" alt="new script sql" width="60%">
+
+- Ya está preparado/a para realizar operaciones SQL.
+
+
+## *Paso 2. Realizar operaciones utilizando lenguaje SQL.*
+
+1. Realice operciones de:
+- CREATE TABLE
+- SELECT
+- INSERT INTO
+- DELETE FROM
+
+2. Puede revisar el ejemplo en el [archivo](example.sql) alojado en este repositorio.
