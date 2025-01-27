@@ -41,3 +41,4 @@ VALUES (1, 'Shubham', 'Thakur', 'India','23','1234567890'),
 -------------------------------------------------
 
 SELECT CustomerName, LastName FROM Customer;
+SELECT CustomerName, Country FROM Customer;

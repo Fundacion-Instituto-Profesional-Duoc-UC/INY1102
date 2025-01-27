@@ -13,18 +13,18 @@
    - **Nombre**: `postgres_engine`.
    - **AMI**: Selecciona **Amazon Linux 2023 AMI**.
 
-<img src="img/launch_ec2.png" alt="launching ec2" width="60%">
+<img src="img/launch_ec2.png" alt="launching ec2" width="80%">
 
-   - **Tipo de instancia**: `t2.micro`, cumple con el mínimo de RAM solicitado
+   - **Tipo de instancia**: `t2.micro`, cumple con el mínimo de RAM solicitado (1GiB)
    - **Key Pair**: Crear una llave o seleccionar existente a la que usted tenga acceso.
 
-<img src="img/instance_type_pair_key.png" alt="launching ec2" width="60%">
+<img src="img/instance_type_pair_key.png" alt="launching ec2" width="80%">
 
    - **Configuración de red**:
-     - Tipo de red: Usar VPC por defecto y red pública ofrecida por el ambiente Sandbox. 
-     - Asegúrese de que la IP pública quede habilitada para la instancia.
+     - Tipo de red: Usar **VPC por defecto** y **red pública** ofrecida por el ambiente Sandbox. 
+     - Asegúrese de que la **IP pública** quede habilitada para la instancia.
 
-<img src="img/network_settings.png" alt="launching ec2" width="60%">
+<img src="img/network_settings.png" alt="launching ec2" width="80%">
 
    - **Para el Security Group**
 
@@ -35,27 +35,27 @@
       - Puede permitir todas las conexiones para cada puerto, sin embargo, siempre tenga en cuenta que **las reglas cuyo origen es 0.0.0.0/0 o ::/0 permiten a todas las direcciones IP acceder a la instancia**. El proveedor recomienda **como buena práctica, configurar reglas de grupo de seguridad para permitir el acceso únicamente desde direcciones IP conocidas**.
 
 
-<img src="img/ports.png" alt="launching ec2" width="60%">
+<img src="img/ports.png" alt="launching ec2" width="80%">
 
 
 5. **Almacenamiento EBS**: 
 
 - Configura al menos 12 GiB de almacenamiento EBS. 
 
-<img src="img/storage.png" alt="ebs final result example" width="60%">
+<img src="img/storage.png" alt="ebs final result example" width="80%">
 
 
 - En el ejemplo de instancia ya lanzada se observan el tamaño de volumen solicitado.
 
-<img src="img/ebs.png" alt="ebs final result example" width="60%">
+<img src="img/ebs.png" alt="ebs final result example" width="80%">
 
 6. Si está conforme con las configuraciones lance la instancia y espere a tenga su estado `En ejecución`.
 
-<img src="img/summary.png" alt="launching ec2" width="60%">
+<img src="img/summary.png" alt="launching ec2" width="80%">
 
 - Instancia en ejecución
 
-<img src="img/ec2_running.png" alt="ec2 running" width="60%">
+<img src="img/ec2_running.png" alt="ec2 running" width="80%">
 
 ---
 
@@ -69,12 +69,12 @@ La forma más adecuada dependerá de si utiliza Sandbox Environment del curso de
 
 - En este caso se usará **Conexión de la instancia EC2 usando cliente browser-based**.
 
-<img src="img/connect_browser-based_client.png" alt="showing how to connect using browser-based client" width="60%">
+<img src="img/connect_browser-based_client.png" alt="showing how to connect using browser-based client" width="80%">
 
 
 - Conexión usando cliente browser-based \
 
-<img src="img/browser-based_client.png" alt="connected using browser-based client" width="60%">
+<img src="img/browser-based_client.png" alt="connected using browser-based client" width="80%">
 
 
 
@@ -97,7 +97,7 @@ sudo systemctl status postgresql
 
 - Si realiza este punto correctamente debería ver que el servicio esté corriendo (running). 
 
-<img src="img/postgresql_running.png" alt="postgresql is running" width="60%">
+<img src="img/postgresql_running.png" alt="postgresql is running" width="80%">
 
 Para salir use `Ctrl + C`.
 
@@ -114,7 +114,7 @@ sudo -u postgres psql
 #Configurar contraseña y salir con \q
 ```
 
-<img src="img/password_postgres.png" alt="modify password postgres" width="60%">
+<img src="img/password_postgres.png" alt="modify password postgres" width="80%">
 
 
 4. Respaldar y configurar archivo `postgresql.conf`:
@@ -133,7 +133,7 @@ sudo vim /var/lib/pgsql/data/postgresql.conf
 - Para este caso abriremos todas las conexiones, sin embargo, por seguridad se recomienda que defina una IP específica.
 - Por defecto tiene `localhost`, se debe descomentar la línea y cambiar a `*`, abriendo así a todas las direcciones entrantes posibles y guardar los cambios.
 
-<img src="img/listen_addresses.png" alt="listen addresses" width="60%">
+<img src="img/listen_addresses.png" alt="listen addresses" width="80%">
 
 5. Respaldar y configurar archivo `pg_hba.conf`:
 
@@ -156,7 +156,7 @@ sudo vim /var/lib/pgsql/data/pg_hba.conf
 host    all         all     0.0.0.0/0         md5
 ```
 
-<img src="img/client_authentication.png" alt="client authentication method" width="60%">
+<img src="img/client_authentication.png" alt="client authentication method" width="80%">
 
 
 6. Reinicie el servicio y pruebe conectividad:
@@ -172,11 +172,11 @@ sudo systemctl restart postgresql
 - En este caso de ejemplo, la IPv4 pública es `54.152.105.146`.
 - Siempre fíjese en ese valor, pues en esta forma de implementación la IP pública es dinámica y puede haber cambiado el valor por algún motivo, como por ejemplo, apagar unos segundos y luego iniciar nuevamente la instancia EC2.
 
-<img src="img/public_ipv4.png" alt="public ipv4 fo rinstance" width="60%">
+<img src="img/public_ipv4.png" alt="public ipv4 fo rinstance" width="80%">
 
 - Desde su entorno local realice pruebas de conectividad de red hacia el motor usando ping o telnet.
 
-<img src="img/ping_telnet.png" alt="public ipv4 fo rinstance" width="60%">
+<img src="img/ping_telnet.png" alt="public ipv4 fo rinstance" width="80%">
 
 ---
 
@@ -191,19 +191,19 @@ sudo systemctl restart postgresql
 - Nombre usuario: `postgres`
 - Contraseña: Usar la que usted definió en la Parte I.
 
-<img src="img/connect_to_db.png" alt="DBeaver connect to db in ec2" width="60%">
+<img src="img/connect_to_db.png" alt="DBeaver connect to db in ec2" width="80%">
 
 
 2. Teniendo los datos de la conexión configurada, realice un test con el botón de `Probar conexión ...`.
 
-<img src="img/connection_test.png" alt="connection test" width="60%">
+<img src="img/connection_test.png" alt="connection test" width="80%">
 
 - Si en el test le aparece `Conectado` haga click en `Aceptar` y luego en `Finalizar`.
 - Si en el test no le aparece `Conectado` revise las propiedades de conexión o de red.
 
 3. Haga doble click en su nueva bases de datos en el `Navegador de Bases de Datos` y expándala. Luego abra un nuevo `Script SQL`.
 
-<img src="img/new_script.png" alt="new script sql" width="60%">
+<img src="img/new_script.png" alt="new script sql" width="80%">
 
 - Ya está preparado/a para realizar operaciones SQL.
 
