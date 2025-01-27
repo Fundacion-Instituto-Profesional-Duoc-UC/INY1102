@@ -1,5 +1,7 @@
 # **Configurar Base de Datos Relacional en modelo IaaS**
 
+<img src="img/diagram.svg" alt="launching ec2" width="60%">
+
 ---
 ## **Parte I: Instalación base de datos relacional en modelo de Infraestructura como Servicio**
 
