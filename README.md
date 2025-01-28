@@ -1,4 +1,4 @@
-creating# INY1103 - FUNDAMENTOS CLOUD I
+# INY1102 - FUNDAMENTOS CLOUD I
 
 <p align="left" style="text-align:left;">
   <a href="https://www.duoc.cl/">
@@ -23,11 +23,12 @@ creating# INY1103 - FUNDAMENTOS CLOUD I
 
 - [Create Table SQL](https://www.geeksforgeeks.org/sql-create-table/)
 - [Select SQL](https://www.geeksforgeeks.org/sql-select-query/)
+- [PostgreSQL Tutorial](https://www.geeksforgeeks.org/postgresql-tutorial)
 
 
 ## ACTIVIDADES
 
-## User data
+## 3.2 User data
 #### ANTECEDENTES GENERALES
 
 El [user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) de ![AWS](https://img.shields.io/badge/-AWS-FF9900?style=flat-square&logo=aws&logoColor=white) es un conjunto de instrucciones que se puede proporcionar al iniciar una instancia de Amazon EC2 para automatizar tareas de configuración. Estas instrucciones pueden ser scripts en shell, comandos de configuración, o scripts en otros lenguajes que se ejecutan al inicio de la instancia. El User Data se usa comúnmente para:
@@ -52,18 +53,33 @@ Ejemplos de scripts de [user data](https://docs.aws.amazon.com/AWSEC2/latest/Use
 
 Para más detalles visite el laboratorio de ejecución indicado por su docente.
 
-## AWS Postgresql as IaaS                    
+## 3.4.2 Base de Datos Relacional en modelo IaaS                   
 #### ANTECEDENTES GENERALES
 
-Este laboratorio se diseñó para reforzar la noción de aprovechar instancias EC2 como infraestructura como servicio (IaaS) para satisfacer las necesidades de bases de datos relacionales
+Esta actividad se diseñó para reforzar la noción de aprovechar instancias EC2 como infraestructura como servicio (IaaS) para satisfacer las necesidades de bases de datos relacionales.
+
+Este laboratorio se centra en la implementación de una base de datos relacional en la nube utilizando una instancia de cómputo. Durante el laboratorio, aprender a configurar una base de datos relacional en una instancia de Amazon EC2, conectarse a la base de datos desde un cliente y realizar consultas básicas utilizando el lenguaje SQL (Structured Query Language), incluyendo las operaciones creación, selección, inserción, actualización y eliminación de datos (CRUD) en una base de datos relacional.
+
+Al finalizar este laboratorio, podrá realizar las siguientes tareas:
+
+- Implementar una instancia de Amazon EC2 para alojar la base de datos relacional usando el modelo de Infraestructura como Servicio.
+-	Instalar y configurar un sistema de gestión de bases de datos (DBMS).
+-	Conectar la base de datos a través de herramientas de gestión remota.
+-	Realizar operaciones utilizando lenguaje SQL (Structured Query Language).
+
 
 #### REQUERIMIENTOS PARA ESTA ACTIVIDAD
 
-Para el desarrollo de esta actividad se requiere ...
+Para completar este laboratorio de manera satisfactoria, debe tener conocimientos básicos sobre Amazon EC2 (contenido revisado en la actividad previa 3.2), también se recomienda tener bases de administración básica de servidores Linux y el uso de herramientas de línea de comandos de Linux para la instalación de software.
+Se debe utilizar el laboratorio de Sandbox Environment del curso de AWS Academy Cloud Foundations para llevar a cabo las actividades.
+
 
 #### DESARROLLO DE ACTIVIDAD
 
-...
+Desarrollo de la [actividad](./postgres_engine/postgres_as_iaas.md) se encuentra alojado en este repositorio resolviendo:
+
+- La instalación y configuración de base de datos relacional en modelo de Infraestructura como Servicio.
+- Conectarse al motor de PostgreSQL y utilizar lenguaje SQL.
 
 <!-- Pendient </p> -->
 
