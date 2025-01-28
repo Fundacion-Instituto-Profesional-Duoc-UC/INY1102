@@ -122,12 +122,13 @@ Para salir use `Ctrl + C`.
 sudo -u postgres psql
 ```
 
-<img src="img/password_postgres.png" alt="modify password postgres" width="60%">
-
 ```bash
 \password postgres
-#Configurar contraseña y salir con \q
 ```
+Configurar contraseña y salir con `\q`.
+
+<img src="img/password_postgres.png" alt="modify password postgres" width="60%">
+
 ##
 4. Respaldar y configurar archivo `postgresql.conf`:
 
@@ -191,6 +192,7 @@ sudo systemctl restart postgresql
 <img src="img/public_ipv4.png" alt="public ipv4 fo rinstance" width="80%">
 
 - Utilizando la IP pública obtenida, desde su entorno local realice pruebas de conectividad de red hacia el motor usando ping o telnet.
+- Recuerde habilitar ICMP en el Security Group para poder usar ping.
 - Para este caso, siempre fíjese en el valor de la IP pública asignada antes de probar, pues en esta forma de implementación la IP pública es dinámica y puede haber cambiado el por algún motivo (como por ejemplo, apagar unos segundos la instancia EC2 y luego iniciarla nuevamente).
 - Si las pruebas responden correctamente puede continuar a la Parte II. En su defecto, regrese a las configuraciones anteriores para verificar que no haya comentido algún error o saltado algún paso.
 
@@ -234,7 +236,12 @@ sudo systemctl restart postgresql
 1. Realice operciones de:
 - CREATE TABLE
 - SELECT
+- UPDATE
 - INSERT INTO
 - DELETE FROM
 
-2. Puede revisar el ejemplo en el [archivo](example.sql) alojado en este repositorio.
+2. Puede revisar los archivos de ejemplo alojados en este repositorio.
+
+- Crear tablas e insertar datos con archivo [example.sql](example.sql).
+- Actualice los datos `example.sql` con el archivo  [update.sql](update.sql)
+- Borre algunos de los datos de `example.sql` con el archivo [delete.sql](delete.sql)
