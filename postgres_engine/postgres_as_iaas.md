@@ -244,7 +244,10 @@ sudo systemctl restart postgresql
 Revise [tutorial](https://www.geeksforgeeks.org/postgresql-tutorial) de PostgreSQL para más detalles.
 
 ##
-2. Puede revisar los archivos de ejemplo alojados en este repositorio.
+2. Operaciones CRUD de ejemplo:
+
+Puede revisar los archivos de ejemplo alojados en este repositorio para ejecutar operaciones CRUD.
+
 
 - Crear tablas e insertar datos con archivo [example.sql](example.sql).
 - Actualice los datos `example.sql` con el archivo  [update.sql](update.sql)
