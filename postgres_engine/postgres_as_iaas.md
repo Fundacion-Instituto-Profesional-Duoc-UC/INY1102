@@ -125,7 +125,7 @@ sudo -u postgres psql
 ```bash
 \password postgres
 ```
-Configurar contraseña y salir con `\q`.
+- Configurar contraseña y salir con `\q`.
 
 <img src="img/password_postgres.png" alt="modify password postgres" width="60%">
 
@@ -186,7 +186,7 @@ host    all         all     0.0.0.0/0         md5
 sudo systemctl restart postgresql
 ```
 
-- Regrese a la consola de AWS, identifique la IP pública de su instancia y copiela. 
+- Regrese a la consola de AWS, identifique la IP pública de su instancia y cópiela. 
 - En este caso de ejemplo, la IPv4 pública es `54.152.105.146`.
 
 <img src="img/public_ipv4.png" alt="public ipv4 fo rinstance" width="80%">
@@ -225,7 +225,7 @@ sudo systemctl restart postgresql
 ##
 3. Haga doble click en su nueva bases de datos en el `Navegador de Bases de Datos` y expándala. Luego abra un nuevo `Script SQL`.
 
-- En este punto, ya está preparado/a para realizar operaciones SQL.
+- Si logró llegar a este punto, ya cuenta con lo necesario para realizar operaciones SQL.
 
 <img src="img/new_script.png" alt="new script sql" width="80%">
 
@@ -234,12 +234,16 @@ sudo systemctl restart postgresql
 ## *Paso 2. Realizar operaciones utilizando lenguaje SQL.*
 
 1. Realice operciones de:
-- CREATE TABLE
-- SELECT
-- UPDATE
-- INSERT INTO
-- DELETE FROM
 
+- CREATE TABLE: Crear una nueva tabla en la base de datos.
+- SELECT: Consultar datos de una tabla.
+- UPDATE: Modificar datos existentes en una tabla.
+- INSERT INTO: Insertar nuevos datos en una tabla.
+- DELETE FROM: Eliminar datos de una tabla.
+
+Revise [tutorial](https://www.geeksforgeeks.org/postgresql-tutorial) de PostgreSQL para más detalles.
+
+##
 2. Puede revisar los archivos de ejemplo alojados en este repositorio.
 
 - Crear tablas e insertar datos con archivo [example.sql](example.sql).
