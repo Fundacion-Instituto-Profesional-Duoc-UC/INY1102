@@ -196,7 +196,7 @@ sudo systemctl restart postgresql
 - Para este caso, siempre fíjese en el valor de la IP pública asignada antes de probar, pues en esta forma de implementación la IP pública es dinámica y puede haber cambiado el por algún motivo (como por ejemplo, apagar unos segundos la instancia EC2 y luego iniciarla nuevamente).
 - Si las pruebas responden correctamente puede continuar a la Parte II. En su defecto, regrese a las configuraciones anteriores para verificar que no haya comentido algún error o saltado algún paso.
 
-<img src="img/ping_telnet.png" alt="public ipv4 fo rinstance" width="80%">
+<img src="img/ping_telnet.png" alt="public ipv4 for instance" width="80%">
 
 ---
 
@@ -210,7 +210,7 @@ sudo systemctl restart postgresql
 - Database: `postgres` -> Esta  database es creada por defecto.
 - Port: 5432 -> Puerto por defecto para PostgreSQL.
 - Nombre usuario: `postgres` -> Usuario por defecto.
-- Contraseña: Usar la que usted definió en la Parte I.
+- Contraseña: Usar la contraseña que usted definió en la Parte I.
 
 <img src="img/connect_to_db.png" alt="DBeaver connect to db in ec2" width="80%">
 
@@ -250,5 +250,9 @@ Puede revisar los archivos de ejemplo alojados en este repositorio para ejecutar
 
 
 - Crear tablas e insertar datos con archivo [example.sql](example.sql).
-- Actualice los datos `example.sql` con el archivo  [update.sql](update.sql)
+- Actualice los datos de `example.sql` con el archivo  [update.sql](update.sql)
 - Borre algunos de los datos de `example.sql` con el archivo [delete.sql](delete.sql)
+
+Ejemplo SELECT:
+
+<img src="img/verify_data.png" alt="verify data" width="60%">
