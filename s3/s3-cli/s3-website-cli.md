@@ -115,7 +115,7 @@ REGION=us-east-1
 mkdir web
 wget https://raw.githubusercontent.com/Fundacion-Instituto-Profesional-Duoc-UC/INY1102/refs/heads/main/s3/index.html -O web/index.html
 
-
+wget https://raw.githubusercontent.com/Fundacion-Instituto-Profesional-Duoc-UC/INY1102/refs/heads/main/s3/404.html -O web/404.html
 ```
 
 * Reemplace el texto por su nombre y su sección `Valentina Paz, Sección 001V` :
